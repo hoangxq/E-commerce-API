@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CategoryDTO {
 	
+	private Long id;
 	private String name;
 	private String description;
 	private List<String> list_product;

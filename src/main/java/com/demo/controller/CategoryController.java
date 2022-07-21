@@ -20,6 +20,7 @@ import com.demo.DTO.CategoryDTO;
 import com.demo.models.Category;
 import com.demo.payload.respone.MessageRespone;
 import com.demo.repository.CategoryRepository;
+import com.demo.service.CategoryService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -29,12 +30,17 @@ public class CategoryController {
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
+	@Autowired
+	private CategoryService categoryService;
+	
 	@GetMapping("")
 	public ResponseEntity<?> getAllCategory(){
-		List<Category> listCategory = categoryRepository.findAll();
+//		List<Category> listCategory = categoryRepository.findAll();
+//		
+//		return ResponseEntity.ok(listCategory.stream()
+//				.map(e -> e.toDTO()));
 		
-		return ResponseEntity.ok(listCategory.stream()
-				.map(e -> e.toDTO()));
+		return ResponseEntity.ok(categoryService.findAll());
 	}
 	
 	@GetMapping("/find")

@@ -39,7 +39,7 @@ public class Category {
 	}
 	
 	public CategoryDTO toDTO () {
-		return new CategoryDTO(name, description, list_product.stream()
+		return new CategoryDTO(id, name, description, list_product.stream()
 				.map(product -> product.getName()).collect(Collectors.toList()));
 	}
 	
